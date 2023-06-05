@@ -10,6 +10,7 @@ public class ContatoDto {
     private String name;
     private Date birthDate;
     private String phone;
+    private String optionalPhone;
     private String cpf;
     private String gender;
     private String cep;

@@ -52,6 +52,7 @@ public class ContatoService {
         retorno.setName(gestorDto.getName());
         retorno.setBirthDate(gestorDto.getBirthDate());
         retorno.setPhone(gestorDto.getPhone());
+        retorno.setOptionalPhone(gestorDto.getOptionalPhone());
         retorno.setCpf(gestorDto.getCpf());
         retorno.setGender(gestorDto.getGender());
         retorno.setCep(gestorDto.getCep());
@@ -71,6 +72,7 @@ public class ContatoService {
         retorno.setName(contato.getName());
         retorno.setBirthDate(contato.getBirthDate());
         retorno.setPhone(contato.getPhone());
+        retorno.setOptionalPhone(contato.getOptionalPhone());
         retorno.setCpf(contato.getCpf());
         retorno.setGender(contato.getGender());
         retorno.setCep(contato.getCep());
@@ -100,6 +102,9 @@ public class ContatoService {
             }
             if (contato.getPhone() != null) {
                 obj.setPhone(contato.getPhone());
+            }
+            if (contato.getOptionalPhone() != null) {
+                obj.setOptionalPhone(contato.getOptionalPhone());
             }
             if (contato.getCpf() != null) {
                 obj.setCpf(contato.getCpf());

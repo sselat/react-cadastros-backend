@@ -46,6 +46,10 @@ public class Contato implements Serializable {
     private String phone;
 
     @NotNull
+    @Column(name = "optionalPhone")
+    private String optionalPhone;
+
+    @NotNull
     @Column(name = "cpf")
     private String cpf;
 

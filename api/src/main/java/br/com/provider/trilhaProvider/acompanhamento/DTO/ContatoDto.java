@@ -19,4 +19,5 @@ public class ContatoDto {
     private String complemento;
     private String cidade;
     private String uf;
+    private String createdBy;
 }

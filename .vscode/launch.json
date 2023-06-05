@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-trilhaProviderApplication<trilhaProvider>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "br.com.provider.trilhaProvider.trilhaProviderApplication",
+      "projectName": "trilhaProvider",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

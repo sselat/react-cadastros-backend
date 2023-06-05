@@ -80,4 +80,8 @@ public class Contato implements Serializable {
     @NotNull
     @Column(name = "uf")
     private String uf;
+
+    @NotNull
+    @Column(name = "createdBy")
+    private String createdBy;
 }

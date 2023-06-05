@@ -61,6 +61,7 @@ public class ContatoService {
         retorno.setComplemento(gestorDto.getComplemento());
         retorno.setCidade(gestorDto.getCidade());
         retorno.setUf(gestorDto.getUf());
+        retorno.setCreatedBy(gestorDto.getCreatedBy());
         return retorno;
     }
 
@@ -79,6 +80,7 @@ public class ContatoService {
         retorno.setComplemento(contato.getComplemento());
         retorno.setCidade(contato.getCidade());
         retorno.setUf(contato.getUf());
+        retorno.setCreatedBy(contato.getCreatedBy());
         return retorno;
     }
 
@@ -125,6 +127,9 @@ public class ContatoService {
             }
             if (contato.getUf() != null) {
                 obj.setUf(contato.getUf());
+            }
+            if (contato.getCreatedBy() != null) {
+                obj.setCreatedBy(contato.getCreatedBy());
             }
 
             contatoRepository.save(obj);

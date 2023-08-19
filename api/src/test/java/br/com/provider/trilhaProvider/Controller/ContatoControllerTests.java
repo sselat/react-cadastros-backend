@@ -1,5 +1,7 @@
 package br.com.provider.trilhaProvider.Controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -8,6 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.provider.trilhaProvider.acompanhamento.Controller.V1.ContatoController;
+import br.com.provider.trilhaProvider.acompanhamento.DTO.ContatoDto;
 import br.com.provider.trilhaProvider.acompanhamento.service.ContatoService;
 
 @WebMvcTest(ContatoController.class)

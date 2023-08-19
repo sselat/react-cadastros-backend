@@ -3,6 +3,7 @@ package br.com.provider.trilhaProvider.service;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,26 +55,56 @@ public class ContatoServiceTests {
         }
 
         @Test
-        public void testGetAllGestor() {
+        public void testGetContatoDTO() throws Exception {
 
-                List<Contato> contatos = new ArrayList<>();
+                ContatoDto contato = new ContatoDto();
 
-                contatos.add(criarGestorGet(1L));
-                contatos.add(criarGestorGet(2L));
+                contato.setId(1);
 
-                when(gestorRepository.findAll()).thenReturn(contatos);
-                List<ContatoDto> retornoContatos = gestorService.GetAll();
+                contato.setName("igor");
 
-                assertTrue("A lista não pode ser nula: ", retornoContatos.size() > 0);
+                contato.setPhone("(11)987047186");
 
-                assertTrue("Id não pode ser nulo: ", retornoContatos.get(0).getId() > 0);
+                contato.setCpf("9123812388");
 
-                assertTrue("Nome do contato não pode ser nulo: : ", retornoContatos.get(0)
-                                .getName().equals(contatos.get(0).getName()));
+                contato.setGender("Masculino");
 
-                assertTrue("Data de admição não pode ser nulo: ", retornoContatos.get(0).getBirthDate()
-                                .equals(contatos.get(0).getBirthDate()));
+                contato.setCep("832182383218");
 
+                contato.setLogradouro("casa do chapeu");
+
+                contato.setBairro(" burguesia ");
+
+                contato.setUf("SP");
+
+                contato.setHouseNumber("666");
+
+                contato.setCidade("Disney");
+
+                contato.setComplemento("Casa do mickey ");
+
+                contato.setBirthDate(java.sql.Date.valueOf(LocalDate.now()));
+
+                ///
+                when(gestorService.GetGestorID(1L)).thenReturn(contato);
+                mockMvc.perform(get("/contatos/1")) /// mock é uma simulação de uma classe que vc queira testar
+                                .andExpect(status().isOk()) /// ele tem um retorno, ele ta esperando o retorno do status
+                                                            /// OK
+                                /// .andExpect(jsonPath("$.Id_Contato").value(contato.getId_Contato()))
+                                .andExpect(jsonPath("$.nome").value(contato.getNome()))
+                                .andExpect(jsonPath("$.dataNiver", is(LocalDate.now().toString())))
+                                .andExpect(jsonPath("$.telefone").value(contato.getTelefone()))
+                                .andExpect(jsonPath("$.cpf").value(contato.getCpf()))
+                                .andExpect(jsonPath("$.genero").value(contato.getGenero()))
+                                .andExpect(jsonPath("$.cep").value(contato.getCep()))
+                                .andExpect(jsonPath("$.logradouro").value(contato.getLogradouro()))
+                                .andExpect(jsonPath("$.bairro").value(contato.getBairro()))
+                                .andExpect(jsonPath("$.uf").value(contato.getUf()))
+                                .andExpect(jsonPath("$.number").value(contato.getNumber()))
+                                .andExpect(jsonPath("$.localidade").value(contato.getLocalidade()))
+                                .andExpect(jsonPath("$.complemento").value(contato.getComplemento()))
+                                .andDo(print());
+                /// e faça isso para finalizar
         }
 
 }
